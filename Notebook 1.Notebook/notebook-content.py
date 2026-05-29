@@ -20,6 +20,21 @@
 # META   }
 # META }
 
+# MARKDOWN ********************
+
+# # NB_01_Bronze_Ingest_OlistData
+# 
+# ## Purpose
+# Ingest raw Olist Brazilian E-Commerce CSV files from OneLake Files/ directory into the Bronze layer.
+# 
+# ## Source Data
+# - 9 CSV files from the Olist public dataset
+# - Total ~99,000 orders across 9 tables
+# 
+# ## Output
+# Raw data available in Lakehouse Files/ for Silver transformation
+
+
 # CELL ********************
 
 from pyspark.sql import functions as F
