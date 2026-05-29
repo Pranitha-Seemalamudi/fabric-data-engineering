@@ -102,7 +102,7 @@ gold_category = (
 )
 gold_category.write.format("delta").mode("overwrite").save("Tables/gold_revenue_by_category")
 print("✓ gold_revenue_by_category")
-gold_category.show(15)
+gold_category.show(18)
 
 
 # METADATA ********************
