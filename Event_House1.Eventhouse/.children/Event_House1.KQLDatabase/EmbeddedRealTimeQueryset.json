@@ -1,0 +1,27 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "9d3f3a00-8f75-462f-9121-2200d8e6574d",
+        "clusterUri": "https://trd-yapb6kce0xr9p0swkz.z2.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "Event_House1"
+      },
+      {
+        "id": "3739a7bf-0b06-483e-8d5a-fcdd4a83929c",
+        "clusterUri": "https://trd-yapb6kce0xr9p0swkz.z2.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "Event_House1"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "d1844652-ed96-4c0d-ab47-821bbb509d4a",
+        "content": "CoinGeckoTrades\n| where timestamp > ago(5m)\n| summarize TradesPerMinute = count() by bin(timestamp, 1m), symbol\n| order by timestamp desc\n\n\nCoinGeckoTrades\n| take 50\n\nCoinGeckoTrades\n| summarize \n    TotalTrades = count(),\n    TotalVolume = round(sum(total_amount), 2),\n    LargestTrade = round(max(total_amount), 2),\n    UniqueCoin = dcount(symbol),\n    BullishTrades = countif(trade_type == \"BUY\"),\n    BearishTrades = countif(trade_type == \"SELL\")\n\n\nCoinGeckoTrades\n| summarize \n    BuyVolume = sumif(total_amount, trade_type == \"BUY\"),\n    SellVolume = sumif(total_amount, trade_type == \"SELL\"),\n    BuyCount = countif(trade_type == \"BUY\"),\n    SellCount = countif(trade_type == \"SELL\")\n    by symbol\n| extend MarketSentiment = iff(BuyVolume > SellVolume, \"🟢 Bullish\", \"🔴 Bearish\")\n| extend NetFlow = round(BuyVolume - SellVolume, 2)\n| order by NetFlow desc\n| project symbol, BuyCount, SellCount, \n    BuyVolume=round(BuyVolume,2), \n    SellVolume=round(SellVolume,2), \n    NetFlow, MarketSentiment\n\n\nCoinGeckoTrades\n| summarize \n    TotalRevenue = round(sum(total_amount), 2),\n    TotalTrades = count(),\n    AvgPrice = round(avg(unit_price), 2),\n    BuyCount = countif(trade_type == \"BUY\"),\n    SellCount = countif(trade_type == \"SELL\")\n    by coin_name, symbol\n| order by TotalRevenue desc\n| project symbol, coin_name, TotalTrades, TotalRevenue, AvgPrice, BuyCount, SellCount",
+        "title": "Tab",
+        "dataSourceId": "3739a7bf-0b06-483e-8d5a-fcdd4a83929c"
+      }
+    ]
+  }
+}
