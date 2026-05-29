@@ -190,6 +190,10 @@ for t in gold_tables:
 # META   "language_group": "synapse_pyspark"
 # META }
 
+# MARKDOWN ********************
+
+# **Gold Tables**
+
 # CELL ********************
 
 all_items = mssparkutils.fs.ls("Tables/")
