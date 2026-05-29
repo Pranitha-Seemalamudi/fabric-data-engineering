@@ -1,0 +1,40 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "DF_Orders",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "olist_orders_dataset": {
+      "queryId": "3360d8e1-9811-4690-98fc-5a0068dfb1d0",
+      "queryName": "olist_orders_dataset",
+      "loadEnabled": false
+    },
+    "NavigationQuery": {
+      "queryId": "2eb3b8b9-ee5c-4cef-8f22-39e8e029fc82",
+      "queryName": "NavigationQuery",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "olist_orders_dataset_DataDestination": {
+      "queryId": "483aa57d-80b1-488f-96ae-79c5aee831e0",
+      "queryName": "olist_orders_dataset_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "https://myunt-my.sharepoint.com/personal/pranithaseemalamudi_my_unt_edu/",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"59e0759d-f9a8-47a3-9efe-69e92234a041\",\"DatasourceId\":\"cd7d0283-fa9f-472b-af23-13a5522a5f2f\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"59e0759d-f9a8-47a3-9efe-69e92234a041\",\"DatasourceId\":\"34f38184-6c75-44a5-b6cd-4083ba870b9a\"}"
+    }
+  ]
+}

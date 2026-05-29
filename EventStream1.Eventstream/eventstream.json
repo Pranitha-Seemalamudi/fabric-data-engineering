@@ -1,0 +1,53 @@
+{
+  "sources": [
+    {
+      "id": "21cb0c2a-f9d1-4bec-98e1-b290dab2570d",
+      "name": "CustomEndpoint-Source",
+      "type": "CustomEndpoint",
+      "properties": {}
+    }
+  ],
+  "destinations": [
+    {
+      "id": "effc14d6-ecb5-4d98-882c-7c6e2c806cf1",
+      "name": "Eventhouse",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "DirectIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "f98dd9e4-9dcd-a9b1-47a2-af342b9706e3",
+        "tableName": "CoinGeckoTrades",
+        "connectionName": "EventStream1_kda1u8",
+        "mappingRuleName": "CoinGeckoTrades_mapping"
+      },
+      "inputNodes": [
+        {
+          "name": "EventStream1-stream"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "EventStream1-stream",
+          "schema": {
+            "columns": []
+          }
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "d72bed3f-0e71-48fd-ae3c-6f6480977d0c",
+      "name": "EventStream1-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "CustomEndpoint-Source"
+        }
+      ]
+    }
+  ],
+  "operators": [],
+  "compatibilityLevel": "1.1"
+}

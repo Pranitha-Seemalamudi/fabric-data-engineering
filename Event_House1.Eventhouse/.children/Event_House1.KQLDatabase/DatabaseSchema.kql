@@ -1,0 +1,9 @@
+// KQL script
+// Use management commands in this script to configure your database items, such as tables, functions, materialized views, and more.
+
+
+.create-merge table CoinGeckoTrades (test:string, timestamp:datetime, order_id:string, symbol:string, coin_name:string, trade_type:string, unit_price:real, quantity:real, total_amount:real, market_cap:datetime, volume_24h:datetime, price_change_24h:real, currency:string, region:string, status:string) 
+.create-or-alter table CoinGeckoTrades ingestion json mapping 'CoinGeckoTrades_mapping'
+```
+[{"Properties":{"Path":"$['test']"},"column":"test","datatype":""},{"Properties":{"Path":"$['timestamp']"},"column":"timestamp","datatype":""},{"Properties":{"Path":"$['order_id']"},"column":"order_id","datatype":""},{"Properties":{"Path":"$['symbol']"},"column":"symbol","datatype":""},{"Properties":{"Path":"$['coin_name']"},"column":"coin_name","datatype":""},{"Properties":{"Path":"$['trade_type']"},"column":"trade_type","datatype":""},{"Properties":{"Path":"$['unit_price']"},"column":"unit_price","datatype":""},{"Properties":{"Path":"$['quantity']"},"column":"quantity","datatype":""},{"Properties":{"Path":"$['total_amount']"},"column":"total_amount","datatype":""},{"Properties":{"Path":"$['market_cap']","Transform":"DateTimeFromUnixMilliseconds"},"column":"market_cap","datatype":""},{"Properties":{"Path":"$['volume_24h']","Transform":"DateTimeFromUnixSeconds"},"column":"volume_24h","datatype":""},{"Properties":{"Path":"$['price_change_24h']"},"column":"price_change_24h","datatype":""},{"Properties":{"Path":"$['currency']"},"column":"currency","datatype":""},{"Properties":{"Path":"$['region']"},"column":"region","datatype":""},{"Properties":{"Path":"$['status']"},"column":"status","datatype":""}]
+```
